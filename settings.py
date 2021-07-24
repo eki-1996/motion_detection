@@ -1,13 +1,11 @@
-from datetime import timedelta
-
-class Setting:
+class Settings:
     """A class to store all settings for Motion Detection"""
 
     def __init__(self):
         """Initialize the program's settings"""
 
         #Path for save the picture on your device
-        self.output_path = f"C:/Users/17168/Desktop/images"
+        self.output_path = 'C:/Users/17168/Desktop/images'
 
         #Your line notify token
         self.line_notify_token = 'NZ6iMTUaLiyFh3UU7YHJlBWPfReUIaJRZBu4aZ7y9el'
@@ -23,8 +21,7 @@ class Setting:
                      'stream': 'stream2'}
         
         #Time limitaion of first valid motion detected
-        self.time_limit = timedelta(minutes=4)
+        self.time_limit = {'minute': 4}
 
         #The max and min number of pictures that will be send to your line
-        self.max_num_picture = 5
-        self.min_num_picture = 3
+        self.picture_num =  {'max': 5, 'min': 3}
