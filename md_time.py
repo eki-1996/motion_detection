@@ -7,6 +7,8 @@ class MD_time:
         """Initialize time attributes"""
         self.settings = md.settings
         self.time_limit = timedelta(minutes=self.settings.time_limit['minute'])
+        self.time_intervel = timedelta(
+            milliseconds=self.settings.time_intervel['milliseconds'])
 
     def time_range(self):
         """Check now if in the time range"""

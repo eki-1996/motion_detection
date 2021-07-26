@@ -26,5 +26,8 @@ class Settings:
         #Time limitaion of first valid motion detected
         self.time_limit = {'minute': 4}
 
+        #Time intervel between images
+        self.time_intervel = {'milliseconds': 100}
+
         #The max and min number of pictures that will be send to your line
         self.picture_num =  {'max': 5, 'min': 3}

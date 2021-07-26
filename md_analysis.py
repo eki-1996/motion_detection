@@ -24,29 +24,33 @@ class MD_analysis:
             return (False, self.images_list)
         
         self.last_gb_img = self._read_stream()
+        self.dt_intervel_start = self.md_time.get_time()
         while(1):
             if self.md_time.time_range() == False:
                 self.cap.release()
                 return (False, self.images_list)
             self.gb_img = self._read_stream()
-            self.ret, self.dt, self.ret_img = self._process_dif()
-            if self.ret == True:
-                self.dif_cnt += 1
-                self.last_dt = self.dt
-                self._save_img()
-            
-            if self.dif_cnt > 0:
-                if self.dt >= self.last_dt + self.md_time.time_limit:
-                    if self.dif_cnt < self.settings.picture_num['min']:
-                        self._reset_att
-                        self.cap.release()
-                        return (False, self.images_list)
-                    else: break
+            self.dt_intervel_end = self.md_time.get_time()
+            if(self.dt_intervel_start + self.md_time.time_intervel <= self.dt_intervel_end):
+                self.dt_intervel_start = self.dt_intervel_end
+                self.ret, self.dt, self.ret_img = self._process_dif()
+                if self.ret == True:
+                    self.dif_cnt += 1
+                    self.last_dt = self.dt
+                    self._save_img()
+                
+                if self.dif_cnt > 0:
+                    if self.dt >= self.last_dt + self.md_time.time_limit:
+                        if self.dif_cnt < self.settings.picture_num['min']:
+                            self._reset_att
+                            self.cap.release()
+                            return (False, self.images_list)
+                        else: break
 
-                if self.dif_cnt >= self.settings.picture_num['max']:
-                    break 
+                    if self.dif_cnt >= self.settings.picture_num['max']:
+                        break 
 
-            self.last_gb_img = self.gb_img
+                self.last_gb_img = self.gb_img
         self.cap.release()
         return (True, self.images_list)
 
