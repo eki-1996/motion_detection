@@ -123,8 +123,8 @@ class MD_analysis:
 
         if self.valid_cnt == 0:
             return (False, self.dt, self.img)
-        cv2.rectangle(self.img, (self.min_x, self.min_y+55), 
-                     (self.max_x, self.max_y+55), (0, 255, 0), 1)
+        cv2.rectangle(self.img, (self.min_x * 2, self.min_y * 2+55), 
+                     (self.max_x * 2, self.max_y * 2+55), (0, 255, 0), 1)
         return (True, self.dt, self.img)
 
     def _save_img(self):
