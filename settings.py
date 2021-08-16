@@ -5,20 +5,20 @@ class Settings:
         """Initialize the program's settings"""
 
         #Path for save the picture on your device
-        self.output_path = 'C:/Users/17168/Desktop/images/'
+        self.output_path = 'yourpath'
 
         #Your line notify token
-        self.line_notify_token = 'NZ6iMTUaLiyFh3UU7YHJlBWPfReUIaJRZBu4aZ7y9el'
+        self.line_notify_token = 'yourtoken'
 
         #The time range your want this progrom works
         self.time_range = {'start_time': {'hour': 7, 'minute': 20},
                            'end_time': {'hour': 23, 'minute': 22}}
 
         #Username, password, ipadress of your ip camera and the stream
-        self.rtsp = {'username': 'ekicamera', 
-                     'password': 'qwe0123987',
-                     'ipadress': '192.168.11.9',
-                     'stream': 'stream1'}
+        self.rtsp = {'username': 'yourusername', 
+                     'password': 'yourpassword',
+                     'ipadress': 'your ip camera ip',
+                     'stream': 'your stream'}
 
         #minimun area for a motion
         self.area_min = 500
