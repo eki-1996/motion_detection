@@ -1,5 +1,5 @@
 class Settings:
-    """A class to store all settings for Motion Detection"""
+    """Class to store all settings for Motion Detection"""
 
     def __init__(self):
         """Initialize the program's settings"""
